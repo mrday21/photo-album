@@ -37,7 +37,7 @@ gem 'font-awesome-sass', '4.6.2'
 gem 'hirb', '0.7.3'
 
 # User Paperclip for image upload
-gem 'paperclip', '4.3.6'
+gem 'paperclip', ">= 5.2.0"
 
 
 # Use Unicorn as the app server
