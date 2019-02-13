@@ -1,68 +1,154 @@
-<!-- Images used to open the lightbox -->
+<!DOCTYPE html>
+<html>
+  <body>
+<h2>PORTFOLIO</h2>
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('utah')"> Utah</button>
+  <button class="btn" onclick="filterSelection('california')"> California</button>
+  <button class="btn" onclick="filterSelection('colorado')"> Colorado</button>
+  <button class="btn" onclick="filterSelection('arizona')"> Arizona</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
 <div class="row">
-  <div class="column">
-    <img src="img1.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+  <div class="column utah">
+    <div class="content">
+      <img src="/images/IMG_2507.jpg" alt="Mountains">
+      <h4>Mountains</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
   </div>
-  <div class="column">
-    <img src="img2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
+  <div class="column utah">
+    <div class="content">
+      <img src="/images/IMG_2516.jpg" alt="Lights">
+      <h4>Lights</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
   </div>
-  <div class="column">
-    <img src="img3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
+  <div class="column utah">
+    <div class="content">
+      <img src="/images/IMG_2537.jpg" alt="Nature">
+      <h4>Forest</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
   </div>
-  <div class="column">
-    <img src="img4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
+
+  <div class="column california">
+    <div class="content">
+      <img src="/images/IMG_2734.jpg" alt="Car">
+      <h4>Retro</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
   </div>
+  <div class="column california">
+    <div class="content">
+      <img src="/images/IMG_2779.jpg" alt="Car">
+      <h4>Fast</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column california">
+    <div class="content">
+      <img src="/images/IMG_2814.jpg" alt="Car">
+      <h4>Classic</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+
+  <div class="column colorado">
+    <div class="content">
+      <img src="/images/IMG_3281.jpg" alt="People">
+      <h4>Girl</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column colorado">
+    <div class="content">
+      <img src="/images/IMG_3239.jpg" alt="People">
+      <h4>Man</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column colorado">
+    <div class="content">
+      <img src="/images/IMG_3240.jpg" alt="People">
+      <h4>Woman</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    
+      <div class="column arizona">
+    <div class="content">
+      <img src="/images/IMG_3077.jpg" alt="People">
+      <h4>Girl</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column arizona">
+    <div class="content">
+      <img src="/images/IMG_3084.jpg" alt="People">
+      <h4>Man</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column arizona">
+    <div class="content">
+      <img src="/images/IMG_3086.jpg" alt="People">
+      <h4>Woman</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+<!-- END GRID -->
 </div>
 
-<!-- The Modal/Lightbox -->
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
+<script>
+filterSelection("all") // Execute the function and show all columns
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
 
-    <div class="mySlides">
-      <div class="numbertext">1 / 4</div>
-      <img src="img1_wide.jpg" style="width:100%">
-    </div>
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
 
-    <div class="mySlides">
-      <div class="numbertext">2 / 4</div>
-      <img src="img2_wide.jpg" style="width:100%">
-    </div>
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1); 
+    }
+  }
+  element.className = arr1.join(" ");
+}
 
-    <div class="mySlides">
-      <div class="numbertext">3 / 4</div>
-      <img src="img3_wide.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">4 / 4</div>
-      <img src="img4_wide.jpg" style="width:100%">
-    </div>
-
-    <!-- Next/previous controls -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <!-- Caption text -->
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <!-- Thumbnail image controls -->
-    <div class="column">
-      <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Snow">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains">
-    </div>
-
-    <div class="column">
-      <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights">
-    </div>
-  </div>
-</div>
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+</body>
+</html>
