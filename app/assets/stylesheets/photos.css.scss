@@ -23,13 +23,9 @@ body {
   margin: auto;
 }
 
-h1 {
+h2 {
   font-size: 50px;
   word-break: break-all;
-}
-
-.row {
-  margin: 8px -16px;
 }
 
 /* Add padding BETWEEN each column (if you want) */
@@ -42,7 +38,8 @@ h1 {
 .column {
   float: left;
   width: 33.33%;
-  display: none; /* Hide columns by default */
+  display: none;
+
 }
 
 /* Clear floats after rows */ 
