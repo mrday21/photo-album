@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
 # Used Twitter Boostrap library for front end UI and layout
 gem 'bootstrap-sass', '3.3.7'
 # Use Capistrano for deployment
