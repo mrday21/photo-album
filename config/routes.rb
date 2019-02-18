@@ -9,5 +9,6 @@ Rails.application.routes.draw do
        get 'albums/new' => 'albums#new'
        get 'albums/:id' => 'albums#show', as: :album
        post 'albums' => 'albums#create'
-
+       post 'login' => 'sessions#create'
+       delete 'logout' => 'sessions#destroy' 
 end

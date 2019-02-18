@@ -1,3 +1,4 @@
+before_action :require_user, only: [:index, :show]
 class AlbumsController < ApplicationController
   respond_to :html, :json, :text, :xml
   
