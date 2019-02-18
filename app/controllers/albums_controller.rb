@@ -1,8 +1,9 @@
 class AlbumsController < ApplicationController
-
+  respond_to :html, :json, :text, :xml
+  
   def index
     @albums = Album.all
-  end 
+  end
 
   def show
     @album = Album.find(params[:id])
